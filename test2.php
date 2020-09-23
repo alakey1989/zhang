@@ -1,4 +1,5 @@
 <?php
+// 2020-09-23
 //namespace Zhang;
 //ini_set("display_errors", "On");
 error_reporting(E_ALL & ~E_NOTICE); //~E_DEPRECATED
