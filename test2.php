@@ -1,5 +1,5 @@
 <?php
-// 2020-09-23
+// 2020-09-23  2
 //namespace Zhang;
 //ini_set("display_errors", "On");
 error_reporting(E_ALL & ~E_NOTICE); //~E_DEPRECATED
@@ -20,32 +20,32 @@ exit;
 
 $users = [
     [
-    'name'=>'test02',
-    'nick'=>'测试02',
-    'userid'=>'2',
-    'avatar'=>''
+        'name' => 'test02',
+        'nick' => '测试02',
+        'userid' => '2',
+        'avatar' => ''
     ],
     [
-    'name'=>'test04',
-    'nick'=>'测试04',
-    'userid'=>'4',
-    'avatar'=>''
+        'name' => 'test04',
+        'nick' => '测试04',
+        'userid' => '4',
+        'avatar' => ''
     ]
 ];
 //$users = json_encode($users);
 $pdata = [
-    'userId'=>'2',
-    'appKey'=>'NTE0NzQwNzE2MjA3ODY1ODU3',
-    'secret'=>'123456'
+    'userId' => '2',
+    'appKey' => 'NTE0NzQwNzE2MjA3ODY1ODU3',
+    'secret' => '123456'
 ];
 $pdata = [
-            'name' => 'golang第一次公开课',
-            'appKey' => 'NTE0NzQwNzE2MjA3ODY1ODU3',
-            'secret' => '123456',
-            'avatar' => '',
-            'createUserId' => 2,
-            'groupId' => 'gc171f8a2fef42A61812137',
-        ];
+    'name' => 'golang第一次公开课',
+    'appKey' => 'NTE0NzQwNzE2MjA3ODY1ODU3',
+    'secret' => '123456',
+    'avatar' => '',
+    'createUserId' => 2,
+    'groupId' => 'gc171f8a2fef42A61812137',
+];
 
 $URL = 'http://192.168.8.251:8087';
 $action = '/appkeygroup/save';
@@ -58,13 +58,13 @@ var_dump($a);
 exit;
 
 //var_dump($body_obj);
-foreach($body_obj->OrderList->OrderEntity as $item){
+foreach ($body_obj->OrderList->OrderEntity as $item) {
     var_dump($item->OpenDate->__toString());
     var_dump($item->PackageId->__toString());
 }
 
 exit;
-$a = [1,2,3,4,5];
+$a = [1, 2, 3, 4, 5];
 foreach ($a as $key => $value) {
     $n = $value;
     if ($key > 2) {
@@ -73,38 +73,45 @@ foreach ($a as $key => $value) {
 }
 var_dump($n);
 exit;
-class Cat{
+
+class Cat
+{
     private $color = 'black';
-    private function getcolor(){
+
+    private function getcolor()
+    {
         return $this->color;
     }
-    public static function instan(){
+
+    public static function instan()
+    {
         $cat = new self();
         return $cat->getcolor();
     }
 }
+
 $a = Cat::instan();
 var_dump($a);
 
 exit;
-for($i=0;$i<500;$i++){
+for ($i = 0; $i < 500; $i++) {
     $post_data = [
-        'id'=>$i+1,
-        'name'=>'alakey',
-        'age'=>30,
-        'ctime'=>time()
+        'id' => $i + 1,
+        'name' => 'alakey',
+        'age' => 30,
+        'ctime' => time()
     ];
     //exit('aaa');
     $url = 'http://127.0.0.1:80/async.php';
-    $rs = async_post($url,$post_data);
+    $rs = async_post($url, $post_data);
 }
 var_dump($rs);
 
 exit;
-var_dump(strtotime(date("Y-m-d",strtotime("-3 day"))));
+var_dump(strtotime(date("Y-m-d", strtotime("-3 day"))));
 exit;
 $a = '0.06';
-$a = sprintf('%.04f',$a);
+$a = sprintf('%.04f', $a);
 trigger_error('xxx is not allow!', E_USER_WARNING);
 var_dump($a);
 //var_dump(11); // ~ 2M
@@ -115,15 +122,16 @@ $key = 'df53!&#987';
 $a = encrypt($str, $key);
 
 $result = decrypt($a, 'df53!&#987 ');
-if(md5($str) === md5($result)){
-    echo "解密成功：".$result;
-}else{
+if (md5($str) === md5($result)) {
+    echo "解密成功：" . $result;
+} else {
     echo "解密失败";
 }
 exit;
 $val['site_type'] = 3;
-$msg_type = $val['site_type']==1 ? 1 : ($val['site_type']==2 ? 6 : 5);
-var_dump($msg_type);exit;
+$msg_type = $val['site_type'] == 1 ? 1 : ($val['site_type'] == 2 ? 6 : 5);
+var_dump($msg_type);
+exit;
 /*exec('rm /mnt/shared/zhang/async_log.txt');
 for($i=0;$i<1000;$i++){
     $post_data = [
@@ -138,27 +146,27 @@ for($i=0;$i<1000;$i++){
 }
 var_dump('the end');
 exit;*/
-$ts_id_arr = ['a','a','b'];
+$ts_id_arr = ['a', 'a', 'b'];
 $ts_id_arr = array_values(array_unique($ts_id_arr));
 var_dump($ts_id_arr);
 exit;
 $result = [
-    ['id'=>1,'ts_id'=>'a001','func'=>1,'info_guid'=>'g1111','str'=>'aa','ver'=>1],
-    ['id'=>3,'ts_id'=>'a002','func'=>1,'info_guid'=>'g1111','str'=>'bb','ver'=>2],
-    ['id'=>4,'ts_id'=>'a003','func'=>2,'info_guid'=>'g1113','str'=>'cc','ver'=>2],
-    ['id'=>7,'ts_id'=>'a004','func'=>1,'info_guid'=>'g1111','str'=>'dd','ver'=>2],
-    ['id'=>11,'ts_id'=>'a005','func'=>4,'info_guid'=>'g1112','str'=>'ee','ver'=>1],
-    ['id'=>13,'ts_id'=>'a006','func'=>4,'info_guid'=>'g1112','str'=>'ff','ver'=>2],
-    ['id'=>14,'ts_id'=>'a006','func'=>4,'info_guid'=>'g1112','str'=>'ff','ver'=>2],
+    ['id' => 1, 'ts_id' => 'a001', 'func' => 1, 'info_guid' => 'g1111', 'str' => 'aa', 'ver' => 1],
+    ['id' => 3, 'ts_id' => 'a002', 'func' => 1, 'info_guid' => 'g1111', 'str' => 'bb', 'ver' => 2],
+    ['id' => 4, 'ts_id' => 'a003', 'func' => 2, 'info_guid' => 'g1113', 'str' => 'cc', 'ver' => 2],
+    ['id' => 7, 'ts_id' => 'a004', 'func' => 1, 'info_guid' => 'g1111', 'str' => 'dd', 'ver' => 2],
+    ['id' => 11, 'ts_id' => 'a005', 'func' => 4, 'info_guid' => 'g1112', 'str' => 'ee', 'ver' => 1],
+    ['id' => 13, 'ts_id' => 'a006', 'func' => 4, 'info_guid' => 'g1112', 'str' => 'ff', 'ver' => 2],
+    ['id' => 14, 'ts_id' => 'a006', 'func' => 4, 'info_guid' => 'g1112', 'str' => 'ff', 'ver' => 2],
 ];
 $ret = [];
-foreach($result as $k=>$v){
-    if($k > 0){
-        if($v['func'] == $result[$k-1]['func']){
-            $result[$k]['ts_id'] = array_merge((array)$result[$k-1]['ts_id'],[$v['ts_id']]);
-            $result[$k]['id'] = array_merge((array)$result[$k-1]['id'],[$v['id']]);
-        }else{
-            $ret[] = $result[$k-1];
+foreach ($result as $k => $v) {
+    if ($k > 0) {
+        if ($v['func'] == $result[$k - 1]['func']) {
+            $result[$k]['ts_id'] = array_merge((array)$result[$k - 1]['ts_id'], [$v['ts_id']]);
+            $result[$k]['id'] = array_merge((array)$result[$k - 1]['id'], [$v['id']]);
+        } else {
+            $ret[] = $result[$k - 1];
         }
     }
 }
@@ -172,26 +180,26 @@ $card_no = '2147483647'; //FFFFFF7F
 $card_no = '4294967295'; //FFFFFFFF
 $card_no = '4294967296'; //FFFFFFFF
 $str = strtoupper(dechex($card_no));
-$str = str_pad($str,8,'0',STR_PAD_LEFT);
+$str = str_pad($str, 8, '0', STR_PAD_LEFT);
 $i = strlen($str);
 $card_no = '';
-while($i>0){
-    $card_no .= $i>=2 ? $str[$i-2] : '';
-    $card_no .= $i>=1 ? $str[$i-1] : '';
+while ($i > 0) {
+    $card_no .= $i >= 2 ? $str[$i - 2] : '';
+    $card_no .= $i >= 1 ? $str[$i - 1] : '';
     $i -= 2;
 }
 
 var_dump($card_no);
 
 exit;
-$a = ['http_code'=>200,'ftp_code'=>300];
+$a = ['http_code' => 200, 'ftp_code' => 300];
 $b = array();
 var_dump($b['h']);
 exit;
 $tar_gum_arr = [
-    ['id'=>1,'name'=>'一年级'],
-    ['id'=>2,'name'=>'二年级'],
-    ['id'=>3,'name'=>'三年级'],
+    ['id' => 1, 'name' => '一年级'],
+    ['id' => 2, 'name' => '二年级'],
+    ['id' => 3, 'name' => '三年级'],
 ];
 $gum_arr = [];
 //需要插入的年级
@@ -200,7 +208,7 @@ foreach ($tar_gum_arr as $value) {
 }
 echo "<pre>";
 var_dump($gum_arr);
-exit;  
+exit;
 //$a = hex2bin(date('YmdHis'));
 $f = 0.58;
 //var_dump(intval($f * 100)); //为啥输出57
@@ -222,21 +230,22 @@ $a = strtoupper(dechex('1707751549'));
 
 $i = strlen($a);
 $card_no = '';
-while($i>0){
-    $card_no .= $i>=2 ? $a[$i-2] : '';
-    $card_no .= $i>=1 ? $a[$i-1] : '';
+while ($i > 0) {
+    $card_no .= $i >= 2 ? $a[$i - 2] : '';
+    $card_no .= $i >= 1 ? $a[$i - 1] : '';
     $i -= 2;
 }
 
 var_dump($card_no);
 exit;
- 
+
 /* 记录日志 */
 file_put_contents('loog.txt', '...');
 
 exit;
 
-function async_post($url, $post_data = array()) {
+function async_post($url, $post_data = array())
+{
     if (empty($post_data)) {
         return FALSE;
     }
@@ -265,31 +274,34 @@ function async_post($url, $post_data = array()) {
 class LogTool
 {
     private static $type;
-    
-    public static function instance(){
+
+    public static function instance()
+    {
         $class = get_called_class();
         return new $class;
     }
 
-    public function getType(){
+    public function getType()
+    {
         return self::$type;
     }
 
-    public static function debug($msg) {
+    public static function debug($msg)
+    {
         switch (static::$type) {
-        case 'biz':
-            echo '把日志写入数据库表1';
-            //static::$type = 'xxx';
-            self::$type = 'xxxxy';
-            break;
-        case 'opt':
-            echo '把日志写入数据库表2';
-            break;
-        default:
-            echo 'error';
+            case 'biz':
+                echo '把日志写入数据库表1';
+                //static::$type = 'xxx';
+                self::$type = 'xxxxy';
+                break;
+            case 'opt':
+                echo '把日志写入数据库表2';
+                break;
+            default:
+                echo 'error';
         }
     }
-    
+
     // 其他代码省略
 }
 
@@ -311,43 +323,53 @@ BizTool::debug('王小虎已登录');
 var_dump(LogTool::instance()->getType());
 
 
-
 exit;
-class A {
+
+class A
+{
     private $var = 101;
+
     /*private function foo() {
         echo 'a';
     }*/
-    public function test() {
-        echo get_class($this)."<br/>";
-        echo __CLASS__."<br/>";
-        echo get_called_class()."<br/>";
-        echo $this->var."<br/>";
+    public function test()
+    {
+        echo get_class($this) . "<br/>";
+        echo __CLASS__ . "<br/>";
+        echo get_called_class() . "<br/>";
+        echo $this->var . "<br/>";
         $this->getVar();
         //$this->foo();
     }
 
-    public function kk(){
+    public function kk()
+    {
         $bb = new B();
         $bb->foo();
     }
 
-    public function qq(){
+    public function qq()
+    {
         echo 'q';
     }
 }
-class B extends A {
-    
-    public $var = 102; 
 
-    public function foo() {
+class B extends A
+{
+
+    public $var = 102;
+
+    public function foo()
+    {
         echo "b";
     }
 
-    public function getVar(){
-        echo $this->var."<br/>";
+    public function getVar()
+    {
+        echo $this->var . "<br/>";
     }
 }
+
 $b = new B();
 $b->test();
 
@@ -356,32 +378,41 @@ $b->test();
 
 exit;
 
-class P{
+class P
+{
 
     private static $pdo = null;
     public $conn = null;
-    private function setActive(){
-        $rand = mt_rand(1000,9999);
-        if(!self::$pdo){
+
+    private function setActive()
+    {
+        $rand = mt_rand(1000, 9999);
+        if (!self::$pdo) {
             self::$pdo = $rand;
         }
         $this->conn = self::$pdo;
         var_dump($this);
     }
 
-    public function create(){
+    public function create()
+    {
         var_dump($this);
         $this->setActive();
         return $this->conn;
     }
 
-    public static function getPdo(){
+    public static function getPdo()
+    {
         return self::$pdo;
     }
 }
-class S extends P{
+
+class S extends P
+{
     public $conn;
-    public function __construct(){
+
+    public function __construct()
+    {
         $r = $this->create();
         var_dump($this);
     }
@@ -397,7 +428,7 @@ exit;
 //$aa();
 //var_dump($var);
 //var_dump($var->getParam('name'));
-$b = function(){
+$b = function () {
     $this->name = 'mmm';
     $this->age = 35;
 };
@@ -423,13 +454,13 @@ var_dump($d);
 
 实际赎回成本(按30天~365天计算0.5%费率)：23000*(1+0.5%)/15159.52 = 1.5248
 13000*(1+0.5%)/8783.39 = 1.4875
-*/  
+*/
 exit;
 //
 //echo 0x5c; //5*16+12*1=92
-if(is_uploaded_file($_FILES['file']['tmp_name'])){
-    $ext = substr(strstr($_FILES['file']['type'],'/'),1);
-    move_uploaded_file($_FILES['file']['tmp_name'], 'test_upload/'.date('YmdHis').'.'.$ext);
+if (is_uploaded_file($_FILES['file']['tmp_name'])) {
+    $ext = substr(strstr($_FILES['file']['type'], '/'), 1);
+    move_uploaded_file($_FILES['file']['tmp_name'], 'test_upload/' . date('YmdHis') . '.' . $ext);
 }
 
 
@@ -446,10 +477,10 @@ imagepng($image);
 
 exit;
 $fail_msg = '';
-$arr = range(1,3);
-foreach($arr as $v){
+$arr = range(1, 3);
+foreach ($arr as $v) {
     $fail_msg .= '此次转账遇到如下问题：\n';
-    $fail_msg .= 'ID'.$v.'\n';
+    $fail_msg .= 'ID' . $v . '\n';
     $fail_msg .= '后续账单转账可能因此中断，请重试\n';
     break;
 }
@@ -472,7 +503,7 @@ ob_end_clean();
 //$a = ob_get_contents();
 //ob_end_clean();
 exit;
-$url='http://192.168.1.190:83/app2/spread/invite_spread.php?code=alakey';
+$url = 'http://192.168.1.190:83/app2/spread/invite_spread.php?code=alakey';
 //http://pan.baidu.com/share/qrcode?w=200&h=200&url=http://192.168.1.190:83/app2/spread/invite_spread.php?code=alakey
 
 echo base64_decode('NTI4Njg5MTU4');
@@ -483,11 +514,11 @@ $text = 'sdaNI';
 $tmpStr = json_encode($text); //暴露出unicode  
 //$tmpStr = preg_replace_callback("(\\\u(e|d)[0-9a-f]{3})","addslashes('\\1')",$tmpStr); //将emoji的unicode留下，其他不动  
 $tmpStr = preg_replace_callback("(\\\u(e|d)[0-9a-f]{3})",
-                    function($matches){
-                        //return addslashes($matches[0]);
-                        return '';
-                    },
-                    $tmpStr);
+    function ($matches) {
+        //return addslashes($matches[0]);
+        return '';
+    },
+    $tmpStr);
 $text = json_decode($tmpStr);
 
 echo $text;
@@ -530,26 +561,28 @@ exit;
 // 11100100 10111010 10010001
 // 100111010010001    =>4e91 | 20113
 // 11100111 
-function checkExitEmoji($str){
+function checkExitEmoji($str)
+{
     preg_match_all('/./u', $str, $match);
-    if(!empty($match[0])){
-        foreach($match[0] as $v){
-            if(strlen($v) >= 4){
+    if (!empty($match[0])) {
+        foreach ($match[0] as $v) {
+            if (strlen($v) >= 4) {
                 return true;
             }
         }
     }
     return false;
 }
+
 function replaceEmoji($str)
 {
-    $str = preg_replace_callback( '/./u',
-            function (array $match) {
-                return strlen($match[0]) >= 4 ? '□' : $match[0];
-            },
-            $str);
+    $str = preg_replace_callback('/./u',
+        function (array $match) {
+            return strlen($match[0]) >= 4 ? '□' : $match[0];
+        },
+        $str);
 
-     return $str;
+    return $str;
 }
 
 var_dump(checkExitEmoji($s));
@@ -561,32 +594,39 @@ $text = $a;
 $tmpStr = json_encode($text); //暴露出unicode  
 //$tmpStr = preg_replace_callback("(\\\u(e|d)[0-9a-f]{3})","addslashes('\\1')",$tmpStr); //将emoji的unicode留下，其他不动  
 $tmpStr = preg_replace_callback("(\\\u(e|d)[0-9a-f]{3})",
-                    function($matches){
-                        return addslashes($matches[0]);
-                        
-                    },
-                    $tmpStr);
+    function ($matches) {
+        return addslashes($matches[0]);
+
+    },
+    $tmpStr);
 $text = json_decode($tmpStr);
 
 echo $text;
-exit; 
+exit;
 
-class F{
+class F
+{
     protected $house;
     protected $gift;
     private $money;
-    public function __construct(){
+
+    public function __construct()
+    {
         $this->gift = 'yasuiqian';
         $this->money = 100;
     }
 
-    public function getData(){
+    public function getData()
+    {
         return $this;
     }
 }
-class C extends F{
-    
-    public function __construct(){
+
+class C extends F
+{
+
+    public function __construct()
+    {
         parent::__construct();
     }
 
@@ -599,14 +639,15 @@ var_dump($res);
 exit;
 function filterEmoji($str)
 {
-    $str = preg_replace_callback( '/./u',
-            function (array $match) {
-                return strlen($match[0]) >= 4 ? '{表情}' : $match[0];
-            },
-            $str);
+    $str = preg_replace_callback('/./u',
+        function (array $match) {
+            return strlen($match[0]) >= 4 ? '{表情}' : $match[0];
+        },
+        $str);
 
-     return $str;
+    return $str;
 }
+
 $str = '\xF0\x9F\x99\x84 \xF0\x9F\x98\x90 \xF0\x9F\x98\x91';
 var_dump(filterEmoji($str));
 exit;
@@ -616,7 +657,6 @@ $replacement = '$1,1,$3';
 echo preg_replace($pattern, $replacement, $string);
 
 
-
 exit();
 //刺史太守长史司马县丞主簿
 
@@ -624,18 +664,19 @@ $success_details = "2018031310313150002090^18941123936^\u5f20\u723d^30.00^S^^201
 //$batch_no = '201803121625000018';
 $batch_no = '201803121625000020';
 $post = array(
-    'success_details'=>$success_details,
-    'batch_no'=>$batch_no,
+    'success_details' => $success_details,
+    'batch_no' => $batch_no,
 );
 $url = 'http://tadmin.234wan.com/app/alipay/notify_url.php';
-$res = POST($url,$post);
+$res = POST($url, $post);
 var_dump($res);
 exit;
 
 //$s = file_get_contents('http://api.95xiu.com/app/gift/getChannelRecord.php?uid=78586284');
 exit;
 
-class HahaException extends Exception {
+class HahaException extends Exception
+{
 
     public function errorMessage()
     {
@@ -648,18 +689,20 @@ class HahaException extends Exception {
     }
 }
 
-function funny($a){
-    if($a < 18){
-        throw new HahaException('小屁孩一边儿去',1001);
+function funny($a)
+{
+    if ($a < 18) {
+        throw new HahaException('小屁孩一边儿去', 1001);
     }
-    return $a."过来，这是给你的";
+    return $a . "过来，这是给你的";
 }
 
-function checkNameLength($str,$max_character_num = 12){
+function checkNameLength($str, $max_character_num = 12)
+{
     //12表示英文字符个数，如果有中文，则一个汉字当作两个英文字符
-    preg_match_all('/[\x{4e00}-\x{9fa5}]{1}/u',$str, $match);
+    preg_match_all('/[\x{4e00}-\x{9fa5}]{1}/u', $str, $match);
     $cn_num = count($match[0]);
-    $str_len = mb_strlen($str,'utf-8');
+    $str_len = mb_strlen($str, 'utf-8');
     $length = $str_len + $cn_num; //汉字自定义占两个长度
     //echo "含有{$cn_num}个汉字，总长{$length}";
     return $length <= $max_character_num ? true : false;
@@ -668,41 +711,43 @@ function checkNameLength($str,$max_character_num = 12){
 function isNumber($data)
 {
     $re = "/^\d+$/";
-    if(preg_match($re, $data))
+    if (preg_match($re, $data))
         return true;
     else
         return false;
 }
 
-function POST($url, $post_data='', $timeout=10){//curl
+function POST($url, $post_data = '', $timeout = 10)
+{//curl
     $ch = curl_init();
-    curl_setopt ($ch, CURLOPT_URL, $url);
-    curl_setopt ($ch, CURLOPT_POST, 1);
-    
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, 1);
+
     curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-    
-    curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
     curl_setopt($ch, CURLOPT_HEADER, false);
     $output = curl_exec($ch);
     curl_close($ch);
     return $output;
 }
+
 //波导 诺基亚 联想 华为 华为 联想 华为
-function HmacMd5($data,$key)
-{ 
+function HmacMd5($data, $key)
+{
     // RFC 2104 HMAC implementation for php.
     // Creates an md5 HMAC.
     // Eliminates the need to install mhash to compute a HMAC
     // Hacked by Lance Rushing(NOTE: Hacked means written)
 
     //需要配置环境支持iconv，否则中文参数不能正常处理
-    $key = iconv("GB2312","UTF-8",$key);
-    $data = iconv("GB2312","UTF-8",$data);
+    $key = iconv("GB2312", "UTF-8", $key);
+    $data = iconv("GB2312", "UTF-8", $data);
 
     $b = 64; // byte length for md5
     if (strlen($key) > $b) {
-        $key = pack("H*",md5($key));
+        $key = pack("H*", md5($key));
     }
     $key = str_pad($key, $b, chr(0x00));
     $ipad = str_pad('', $b, chr(0x36));
@@ -710,60 +755,67 @@ function HmacMd5($data,$key)
     $k_ipad = $key ^ $ipad;
     $k_opad = $key ^ $opad;
 
-    return md5($k_opad . pack("H*",md5($k_ipad . $data)));
+    return md5($k_opad . pack("H*", md5($k_ipad . $data)));
 }
 
-function validation_filter_id_card($id_card){
-    if(strlen($id_card)==18){
+function validation_filter_id_card($id_card)
+{
+    if (strlen($id_card) == 18) {
         return idcard_checksum18($id_card);
-    }elseif((strlen($id_card)==15)){
-        $id_card=idcard_15to18($id_card);
+    } elseif ((strlen($id_card) == 15)) {
+        $id_card = idcard_15to18($id_card);
         return idcard_checksum18($id_card);
-    }else{
+    } else {
         return false;
     }
 }
+
 // 计算身份证校验码，根据国家标准GB 11643-1999
-function idcard_verify_number($idcard_base){
-    if(strlen($idcard_base)!=17){
+function idcard_verify_number($idcard_base)
+{
+    if (strlen($idcard_base) != 17) {
         return false;
     }
     //加权因子
-    $factor=array(7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2);
+    $factor = array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2);
     //校验码对应值
-    $verify_number_list=array('1','0','X','9','8','7','6','5','4','3','2');
-    $checksum=0;
-    for($i=0;$i<strlen($idcard_base);$i++){
-        $checksum += substr($idcard_base,$i,1) * $factor[$i];
+    $verify_number_list = array('1', '0', 'X', '9', '8', '7', '6', '5', '4', '3', '2');
+    $checksum = 0;
+    for ($i = 0; $i < strlen($idcard_base); $i++) {
+        $checksum += substr($idcard_base, $i, 1) * $factor[$i];
     }
-    $mod=$checksum % 11;
-    $verify_number=$verify_number_list[$mod];
+    $mod = $checksum % 11;
+    $verify_number = $verify_number_list[$mod];
     return $verify_number;
 }
+
 // 将15位身份证升级到18位
-function idcard_15to18($idcard){
-    if(strlen($idcard)!=15){
+function idcard_15to18($idcard)
+{
+    if (strlen($idcard) != 15) {
         return false;
-    }else{
+    } else {
         // 如果身份证顺序码是996 997 998 999，这些是为百岁以上老人的特殊编码
-        if(array_search(substr($idcard,12,3),array('996','997','998','999')) !== false){
-            $idcard=substr($idcard,0,6).'18'.substr($idcard,6,9);
-        }else{
-            $idcard=substr($idcard,0,6).'19'.substr($idcard,6,9);
+        if (array_search(substr($idcard, 12, 3), array('996', '997', '998', '999')) !== false) {
+            $idcard = substr($idcard, 0, 6) . '18' . substr($idcard, 6, 9);
+        } else {
+            $idcard = substr($idcard, 0, 6) . '19' . substr($idcard, 6, 9);
         }
     }
-    $idcard=$idcard.idcard_verify_number($idcard);
+    $idcard = $idcard . idcard_verify_number($idcard);
     return $idcard;
 }
+
 // 18位身份证校验码有效性检查
-function idcard_checksum18($idcard){
-    if(strlen($idcard)!=18){
+function idcard_checksum18($idcard)
+{
+    if (strlen($idcard) != 18) {
         return false;
     }
-    $idcard_base=substr($idcard,0,17);
-    if(idcard_verify_number($idcard_base)!=strtoupper(substr($idcard,17,1))){
+    $idcard_base = substr($idcard, 0, 17);
+    if (idcard_verify_number($idcard_base) != strtoupper(substr($idcard, 17, 1))) {
         return false;
-    }else{
+    } else {
         return true;
     }
 }
@@ -771,140 +823,146 @@ function idcard_checksum18($idcard){
 //$a = '14243319860618072X';
 //var_dump(validation_filter_id_card($a));exit;
 
-function bulidQuery($data,$isUrlEncode=false,$isFilter=false){
-    $str='';
-    if(!empty($data) && is_array($data)){
-        foreach ($data as $k=>$v){
-            if($isUrlEncode){
-				$v=urlencode($v);
-			}
-            if($isFilter && $v==''){
+function bulidQuery($data, $isUrlEncode = false, $isFilter = false)
+{
+    $str = '';
+    if (!empty($data) && is_array($data)) {
+        foreach ($data as $k => $v) {
+            if ($isUrlEncode) {
+                $v = urlencode($v);
+            }
+            if ($isFilter && $v == '') {
                 continue;
             }
-            $str.=$k."=".$v."&";
+            $str .= $k . "=" . $v . "&";
         }
-        $str = trim($str,'&');
+        $str = trim($str, '&');
     }
     return $str;
 }
 
-function getThisMonday(){
-    return date('Y-m-d',(time()-((date('w')==0?7:date('w'))-1)*24*3600)); 
+function getThisMonday()
+{
+    return date('Y-m-d', (time() - ((date('w') == 0 ? 7 : date('w')) - 1) * 24 * 3600));
 }
 
-function makeAscii($a){
-	//$a = 'abc';
-	$sum = 0;
-	for($i=0;$i<strlen($a);$i++){
-		$sum += ord($a[$i]);
-		//echo $a[$i]."<pre>";
-	}
-	return $sum;
+function makeAscii($a)
+{
+    //$a = 'abc';
+    $sum = 0;
+    for ($i = 0; $i < strlen($a); $i++) {
+        $sum += ord($a[$i]);
+        //echo $a[$i]."<pre>";
+    }
+    return $sum;
 }
 
-function getLastMonday(){
-	if(date('l',time()) == 'Monday')
-		return strtotime('last monday');
-	else
-		return strtotime('-1 week last monday');
+function getLastMonday()
+{
+    if (date('l', time()) == 'Monday')
+        return strtotime('last monday');
+    else
+        return strtotime('-1 week last monday');
 }
 
-function make_nonce_str($length = 32){
-	$string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-	$string_length = strlen($string);
-	$str = '';
-	for($i=0;$i<$length;$i++){
-		$str .= $string[mt_rand(0,$string_length-1)];
-	}
-	return $str;
+function make_nonce_str($length = 32)
+{
+    $string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    $string_length = strlen($string);
+    $str = '';
+    for ($i = 0; $i < $length; $i++) {
+        $str .= $string[mt_rand(0, $string_length - 1)];
+    }
+    return $str;
 }
 
-function print_server_var(){
+function print_server_var()
+{
 
-	echo 'SCRIPT_FILENAME:'.$_SERVER['SCRIPT_FILENAME'].'<br/>';
-	echo 'SCRIPT_NAME:'.$_SERVER['SCRIPT_NAME'].'<br/>';
-	echo 'PHP_SELF:'.$_SERVER['PHP_SELF'].'<br/>';
-	echo '__FILE__:'.__FILE__.'<br/>';
-	echo '__DIR__:'.__DIR__.'<br/>';
-	echo 'REQUEST_URI:'.$_SERVER['REQUEST_URI'].'<br/>';
-	echo 'HTTP_HOST:'.$_SERVER['HTTP_HOST'].'<br/>';
-	echo 'QUERY_STRING:'.$_SERVER['QUERY_STRING'].'<br/>';
+    echo 'SCRIPT_FILENAME:' . $_SERVER['SCRIPT_FILENAME'] . '<br/>';
+    echo 'SCRIPT_NAME:' . $_SERVER['SCRIPT_NAME'] . '<br/>';
+    echo 'PHP_SELF:' . $_SERVER['PHP_SELF'] . '<br/>';
+    echo '__FILE__:' . __FILE__ . '<br/>';
+    echo '__DIR__:' . __DIR__ . '<br/>';
+    echo 'REQUEST_URI:' . $_SERVER['REQUEST_URI'] . '<br/>';
+    echo 'HTTP_HOST:' . $_SERVER['HTTP_HOST'] . '<br/>';
+    echo 'QUERY_STRING:' . $_SERVER['QUERY_STRING'] . '<br/>';
 }
 
 //排列组合 abc(123)
-function rank($base, $temp=null)
+function rank($base, $temp = null)
 {
     global $g;
     $len = strlen($base);
-    if($len <= 1)
-    {
-        echo $temp.$base.':'.$g.'<br/>';
+    if ($len <= 1) {
+        echo $temp . $base . ':' . $g . '<br/>';
         $g++;
-    }
-    else
-    {
-        for($i=0; $i< $len; ++$i)
-        {
-            rank(substr($base, 0, $i).substr($base, $i+1, $len-$i-1), $temp.$base[$i]);
-                    //23  1       
+    } else {
+        for ($i = 0; $i < $len; ++$i) {
+            rank(substr($base, 0, $i) . substr($base, $i + 1, $len - $i - 1), $temp . $base[$i]);
+            //23  1
             //3   12      //2  13
             ///123        ///132
-            
+
         }
     }
 }
 
-function lock(){
-	$fp = fopen("/tmp/lock.lock", "w");
- 
-	if(flock($fp, LOCK_EX|LOCK_NB)){   
-	     sleep(10);
-	     echo date('Y-m-d H:i:s');
-	     flock($fp, LOCK_UN);    
-	}else{
-	    echo "Couldn't get the lock!" ;
-	}
- 
-	fclose($fp);
+function lock()
+{
+    $fp = fopen("/tmp/lock.lock", "w");
+
+    if (flock($fp, LOCK_EX | LOCK_NB)) {
+        sleep(10);
+        echo date('Y-m-d H:i:s');
+        flock($fp, LOCK_UN);
+    } else {
+        echo "Couldn't get the lock!";
+    }
+
+    fclose($fp);
 }
 
 //加密数据，用key
-function encrypt($data, $key){
+function encrypt($data, $key)
+{
     $key = md5($key);
     $x = 0;
     $len = strlen($data);
     $l = strlen($key);
-    for($i = 0; $i < $len; $i++){
-        if($x == $l){
+    for ($i = 0; $i < $len; $i++) {
+        if ($x == $l) {
             $x = 0;
         }
         $char .= $key{$x};
         $x++;
         //var_dump($data[$i]);
     }
-    for($i = 0; $i < $len; $i++){
+    for ($i = 0; $i < $len; $i++) {
         $str .= chr(ord($data[$i]) + ord($char[$i]) % 256);
     }
     return base64_encode($str);
 }
+
 //解密数据，用key
-function decrypt($data, $key){
+function decrypt($data, $key)
+{
     $key = md5($key);
     $x = 0;
     $data = base64_decode($data);
     $len = strlen($data);
     $l = strlen($key);
-    for($i = 0; $i < $len; $i++){
-        if($x == $l){
+    for ($i = 0; $i < $len; $i++) {
+        if ($x == $l) {
             $x = 0;
         }
         $char .= $key{$x};
         $x++;
     }
-    for($i = 0; $i < $len; $i++){
-        if(ord($data[$i]) < ord($char[$i])){
+    for ($i = 0; $i < $len; $i++) {
+        if (ord($data[$i]) < ord($char[$i])) {
             $str .= chr((ord($data[$i]) + 256) - ord($char[$i]));
-        }else{
+        } else {
             $str .= chr(ord($data[$i]) - ord($char[$i]));
         }
     }
@@ -912,9 +970,10 @@ function decrypt($data, $key){
 }
 
 //共享内存
-function uniqidNumber($max_id = 99999){
+function uniqidNumber($max_id = 99999)
+{
     $shm_id = shmop_open(0xff1, "a", 0, 0);
-    if($shm_id){
+    if ($shm_id) {
         $shm_size = shmop_size($shm_id);
         $my_string = shmop_read($shm_id, 0, $shm_size);
         $id = unserialize($my_string);
